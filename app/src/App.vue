@@ -1,11 +1,16 @@
 <template>
     <div id="app" class="container">
         <h1>{{ msg }}</h1>
-        <ul v-for="foto in fotos">
-            <li>
-                <img :src="foto.url" :alt="foto.titulo">
-            </li>
-        </ul>
+        <div class="row">
+            <div v-for="foto in fotos" class="col-md-3">
+                <div class="card painel">
+                    <img class="card-img-top" :src="foto.url" :alt="foto.titulo">
+                    <div class="card-body painel-body">
+                        <h4 class="card-title painel-titulo">{{ foto.titulo }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -27,5 +32,21 @@
 </script>
 
 <style lang="scss">
+    .painel {
+        display: inline-block;
+        margin: 2px;
+        box-shadow: 5px 5px 10px grey;
+        height: 100%;
+        vertical-align: top;
+        text-align: center;
+    }
 
+    .painel .painel-body {
+        background: lightblue;
+    }
+
+    .painel .painel-titulo {
+        text-align: center;
+        text-transform: uppercase;
+    }
 </style>
